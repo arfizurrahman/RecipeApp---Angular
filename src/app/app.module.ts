@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,7 +45,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
