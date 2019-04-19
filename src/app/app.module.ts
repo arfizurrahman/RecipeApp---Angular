@@ -27,7 +27,6 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     AuthModule,
     CoreModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
