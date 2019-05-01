@@ -9,15 +9,6 @@ export class ShoppingListService {
         new Ingredient('Tomatoes', 10),
       ];
     
-    addIngredient(ingredient: Ingredient) {
-        this.ingredients.push(ingredient);
-        this.ingredientsChnaged.next(this.ingredients.slice());
-    }
-
-    getIngredients() {
-        return this.ingredients.slice();
-    }
-
     getIngredient(index: number) {
         return this.ingredients[index];
     }
