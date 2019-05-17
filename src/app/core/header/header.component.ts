@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit{
       }
     );
   }
+  
 
   onFetchData(){
     this.dataStorageService.getRecipes();
@@ -38,7 +39,4 @@ export class HeaderComponent implements OnInit{
     this.authService.logout();
   }
 
-  isAuthenticated(){
-    return this.authService.isAuthenticated();
-  }
 }

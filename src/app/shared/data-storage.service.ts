@@ -12,7 +12,7 @@ export class DataStorageService {
         private authService: AuthService){}
 
     storeRecipes(){
-        const token = this.authService.getToken();
+        // const token = this.authService.getToken();
         // return this.http.put('https://ng-recipe-book-6f119.firebaseio.com/recipes.json?auth=' + token,this.recipeService.getRecipes());
         // return this.http.put('https://ng-recipe-book-6f119.firebaseio.com/recipes.json',this.recipeService.getRecipes(),
         // {
@@ -28,21 +28,20 @@ export class DataStorageService {
     }
 
     getRecipes(){
-        const token = this.authService.getToken();
          this.http.get<Recipe[]>('https://ng-recipe-book-6f119.firebaseio.com/recipes.json?', {
              observe: 'body',
              responseType: 'json'
          })
         .pipe(map(
-            (recipes)=>{
-               for(let recipe of recipes){
-                   if(!recipe['ingredients']){
-                       console.log(recipe)
-                         recipe['ingredients'] = [];
-                   }
-               }
-               return recipes;
-            }
+            (recipes) => {
+                console.log(recipes);
+                for (let recipe of recipes) {
+                  if (!recipe['ingredients']) {
+                    recipe['ingredients'] = [];
+                  }
+                }
+                return recipes;
+              }
         ))
         .subscribe(
             (response: Recipe[])=>{
